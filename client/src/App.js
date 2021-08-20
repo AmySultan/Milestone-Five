@@ -24,6 +24,7 @@ export default function App() {
   const handleSubmit = e => {
     e.preventDefault();
     addStudent();
+    setInput({ firstname: "", lastname: "" });
   };
 
   const addStudent = () => {
@@ -78,7 +79,7 @@ export default function App() {
             className="form-control mr-sm-2"
             type="text"
             name="firstname"
-            id="firstname"
+            value={input.firstname}
             placeholder="Your name"
             onChange={e => handleChange(e)}
           ></input>
@@ -87,12 +88,11 @@ export default function App() {
             className="form-control mr-sm-2"
             type="text"
             name="lastname"
-            id="lastname"
-            value="Your surname"
-            // placeholder="Your surname"
+            value={input.lastname}
+            placeholder="Your surname"
             onChange={e => handleChange(e)}
           ></input>
-          <button type="reset" class="btn btn-warning">
+          <button type="resetsearch" class="btn btn-warning">
             Submit
           </button>
         </form>
