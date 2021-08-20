@@ -37,7 +37,7 @@ router.post("/", function(req, res, next) {
   db(
     `INSERT INTO students(firstname,lastname)VALUES ("${req.body.firstname}","${req.body.lastname}")`
   )
-    .then(results => {
+    .then(() => {
       getAllStudents(req, res);
     })
     .catch(err => res.status(404).send(err));
@@ -50,7 +50,7 @@ router.delete("/:id", function(req, res, next) {
     .then(results => {
       res.send(results.data);
     })
-    .catch(err => res.status(500).send(err));
+    .catch(err => res.status(404).send(err));
 });
 
 module.exports = router;
